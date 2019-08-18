@@ -1,5 +1,3 @@
-// dar npm install --save-dev electron
-
 const { app, BrowserWindow } = require("electron");
 
 function createWindow() {

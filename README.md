@@ -12,7 +12,7 @@
 
 #### A estrutura básica da monografia deve ser:
 
-- [ ] _Introdução_
+- [x] _Introdução_
 - [ ] _Referencial Teórico_
 - [ ] _Desenvolvimento_
 - [ ] _Resultados e Discussão_

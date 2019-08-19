@@ -1,7 +1,7 @@
 module.exports = {
   dialect: 'mysql',
   host: '127.0.0.1',
-  username: 'docker',
+  username: 'm7',
   password: 'docker',
   database: 'aps',
   operatorAliases: false,

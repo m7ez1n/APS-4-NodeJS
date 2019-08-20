@@ -476,6 +476,13 @@ configstore@^3.0.0:
     write-file-atomic "^2.0.0"
     xdg-basedir "^3.0.0"
 
+connect-loki@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/connect-loki/-/connect-loki-1.1.0.tgz#21e475dda3c148229a2db86f57d11d42db83ebd3"
+  integrity sha512-JQ4Ueh7m1/I+E+DvzOpyZSCjTJZetKy7Zob8C8ly2ecH7TmC4puYz0y8s8/jyJbVGdjuDyQOxcf82NEl0tOmvg==
+  dependencies:
+    lokijs "^1.5.0"
+
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
@@ -1865,6 +1872,11 @@ lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.5:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+lokijs@^1.5.0:
+  version "1.5.7"
+  resolved "https://registry.yarnpkg.com/lokijs/-/lokijs-1.5.7.tgz#3bbeb5c2dbffebd78d035bac82c7c4e6055870f0"
+  integrity sha512-2SqUV6JH4f15Z5/7LVsyadSUwHhZppxhujgy/VhVqiRYMGt5oaocb7fV/3JGjHJ6rTuEIajnpTLGRz9cJW/c3g==
 
 long@^4.0.0:
   version "4.0.0"

@@ -1,4 +1,6 @@
 const express = require('express')
+const multerConfig = require('./config/multer')
+const upload = require('multer')(multerConfig)
 
 const routes = express.Router()
 
@@ -19,5 +21,7 @@ routes.use('/app', authMiddleware)
 routes.get('app/logout', SessionController.destroy)
 routes.put('app/user/:id', UserController.update)
 routes.delete('app/user/:id', UserController.destroy)
+
+routes.post('app/images', upload.single('image'))
 
 module.exports = routes

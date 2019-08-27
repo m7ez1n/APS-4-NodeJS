@@ -6,6 +6,7 @@ const routes = express.Router()
 
 const UserController = require('./app/controllers/UserController')
 const SessionController = require('./app/controllers/SessionController')
+const ImageController = require('./app/controllers/ImageController')
 
 // CRUD User
 routes.get('/user', UserController.index)
@@ -17,8 +18,6 @@ routes.delete('/user/:id', UserController.destroy)
 // Session
 routes.post('/sessions', SessionController.store)
 
-routes.post('/app/images', upload.single('image'), (req, res) => {
-  return res.json({ ok: true })
-})
+routes.post('/app/images', upload.single('image'), ImageController.store)
 
 module.exports = routes

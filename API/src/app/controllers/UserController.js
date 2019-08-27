@@ -2,32 +2,49 @@ const { User } = require('../models')
 
 class UserController {
   async index (req, res) {
-    const users = await User.find()
+    const users = await User.findAll()
 
     return res.json(users)
   }
 
   async show (req, res) {
-    const user = await User.findById(req.params.id)
+    const user = await User.findByPk(req.params.id)
 
     return res.json(user)
   }
 
   async store (req, res) {
+    const userExists = await User.findOne({ where: { email: req.body.email } })
+
+    if (userExists) {
+      return res.status(400).json({ error: 'Usuário ja existe' })
+    }
+
     const user = await User.create(req.body)
 
     return res.json(user)
   }
 
   async update (req, res) {
-    const user = await User.find(req.params.id)
+    const { email } = req.body
 
-    const data = res.only(['name', 'email'])
+    const user = await User.findByPk(req.params.id)
 
-    user.merge(data)
-    await user.save()
+    if (email !== user.email) {
+      const userExists = await User.findOne({ where: { email } })
 
-    return res.json(user)
+      if (userExists) {
+        return res.status(400).json({ error: 'Usuário ja existe' })
+      }
+    }
+
+    const { id, name } = await user.update(req.body)
+
+    return res.json({
+      id,
+      name,
+      email
+    })
   }
 
   async destroy (req, res) {

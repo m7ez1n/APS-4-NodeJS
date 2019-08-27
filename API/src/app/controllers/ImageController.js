@@ -2,11 +2,13 @@ const { Images } = require('../models')
 
 class ImageController {
   async store (req, res) {
-    const { filename } = req.file
+    const { filename: images } = req.file
 
-    const imagem = await Images.create({ ...req.body, imagem: filename })
+    const file = await Images.create({
+      images
+    })
 
-    return res.json(imagem)
+    return res.json(file)
   }
 }
 

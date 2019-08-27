@@ -17,6 +17,8 @@ routes.delete('/user/:id', UserController.destroy)
 // Session
 routes.post('/sessions', SessionController.store)
 
-routes.post('/app/images', upload.single('image'))
+routes.post('/app/images', upload.single('image'), (req, res) => {
+  return res.json({ ok: true })
+})
 
 module.exports = routes

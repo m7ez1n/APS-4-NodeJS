@@ -1,4 +1,7 @@
 const { User } = require('../models')
+const authConfig = require('../../config/auth')
+
+const jwt = require('jsonwebtoken')
 
 class SessionController {
   async store (req, res) {
@@ -7,24 +10,24 @@ class SessionController {
     const user = await User.findOne({ where: { email } })
 
     if (!user) {
-      console.log('Usuário não encontrado')
-      return res.redirect('/signin')
+      return res.status(401).json({ error: 'Usuário não encontrado' })
     }
 
     if (!(await user.checkPassword(password))) {
-      console.log('Senha incorreta')
-      return res.redirect('/signin')
+      return res.status(401).json({ error: 'Senha incorreta' })
     }
 
-    req.session.user = user
+    const { id, name } = user
 
-    return res.redirect('/app/dashboard')
-  }
-
-  destroy (req, res) {
-    req.session.destroy(() => {
-      res.clearCookie('root')
-      return res.redirect('/signin')
+    return res.json({
+      user: {
+        id,
+        name,
+        email
+      },
+      token: jwt.sign({ id }, authConfig.secret, {
+        expiresIn: authConfig.expiresIn
+      })
     })
   }
 }

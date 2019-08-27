@@ -48,9 +48,9 @@ class UserController {
   }
 
   async destroy (req, res) {
-    const user = await User.find(req.params.id)
+    const user = await User.findByPk(req.params.id)
 
-    await user.delete()
+    await user.destroy()
 
     return res.send()
   }

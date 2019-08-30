@@ -8,12 +8,14 @@
 
 - [ ] **3)** Os dados que serão utilizados para as ordenações deverão ser externos (obtidos a partir de valores previamente armazenados, tais como arquivos texto) e internos (valores aleatórios gerados pelo próprio programa ou fornecidos diretamente pelo usuário). :anguished:
 
+- [ ] **Observação sobre o 2** No desenvolvimento com node eu não vou user métodos de ordenação como burble sort, insertion sort ect. Vou usar apenas o método de ordenção padrão do node, ou seja, .sort(). Os outros métodos serão desenvolvidos em Java, que vai estar nesse [repositório](https://github.com/m7Aei/APS-4-Java)
+
 ## Sobre a monografia :persevere:
 
 #### A estrutura básica da monografia deve ser:
 
 - [x] _Introdução_
-- [X] _Referencial Teórico_
+- [x] _Referencial Teórico_
 - [ ] _Desenvolvimento_
 - [ ] _Resultados e Discussão_
 - [ ] _Considerações Finais_

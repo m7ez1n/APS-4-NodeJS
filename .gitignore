@@ -65,4 +65,4 @@ typings/
 uploads/
 
 # arquivo de sessão
-src/tmp/sessions.db
+tmp/sessions.db

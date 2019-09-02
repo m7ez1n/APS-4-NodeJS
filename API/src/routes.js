@@ -20,7 +20,7 @@ routes.use(authMiddleware)
 
 routes.get('/user', UserController.index)
 routes.get('/user/:id', UserController.show)
-routes.put('/user/:id', UserController.update)
+routes.put('/user', UserController.update)
 routes.delete('/user/:id', UserController.destroy)
 
 routes.post('/app/images', upload.single('image'), ImageController.store)

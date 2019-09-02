@@ -28,7 +28,7 @@ class UserController {
   async update (req, res) {
     const { email } = req.body
 
-    const user = await User.findByPk(req.params.id)
+    const user = await User.findByPk(req.userId)
 
     if (email !== user.email) {
       const userExists = await User.findOne({ where: { email } })

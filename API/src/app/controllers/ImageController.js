@@ -1,4 +1,6 @@
 const { Images } = require('../models')
+const Mail = require('../../lib/mail')
+const { User } = require('../models')
 
 class ImageController {
   async index (req, res) {
@@ -14,6 +16,13 @@ class ImageController {
 
     const file = await Images.create({
       images
+    })
+    const user = await User.findByPk(req.userId)
+
+    await Mail.sendMail({
+      to: `${user.name} <${user.email}>`,
+      subject: 'Nova imagem enviada',
+      text: 'Você enviou uma nova imagem'
     })
 
     return res.json(file)

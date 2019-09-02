@@ -1,9 +1,23 @@
-module.exports = (req, res, next) => {
-  if (req.session && req.session.user) {
-    res.locals.user = req.session.user
+const jwt = require('jsonwebtoken')
+const { promisify } = require('util')
+const authConfig = require('../../config/auth')
 
-    return next()
+module.exports = async (req, res, next) => {
+  const authHeader = req.headers.authorization
+
+  if (!authHeader) {
+    res.status(401).json({ error: 'Token não autorizado' })
   }
 
-  return res.redirect('/signin')
+  const [, token] = authHeader.split(' ')
+
+  try {
+    const decoded = await promisify(jwt.verify)(token, authConfig.secret)
+
+    req.userId = decoded.id
+
+    return next()
+  } catch (err) {
+    return res.status(401).json({ error: 'Token invalido' })
+  }
 }

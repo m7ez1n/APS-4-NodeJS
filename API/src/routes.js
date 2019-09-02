@@ -8,15 +8,20 @@ const UserController = require('./app/controllers/UserController')
 const SessionController = require('./app/controllers/SessionController')
 const ImageController = require('./app/controllers/ImageController')
 
-// CRUD User
-routes.get('/user', UserController.index)
-routes.get('/user/:id', UserController.show)
-routes.post('/user', UserController.store)
-routes.put('/user/:id', UserController.update)
-routes.delete('/user/:id', UserController.destroy)
+const authMiddleware = require('./app/middlewares/auth')
 
+// CRUD User
+routes.post('/user', UserController.store)
 // Session
 routes.post('/sessions', SessionController.store)
+
+// usando o middleware
+routes.use(authMiddleware)
+
+routes.get('/user', UserController.index)
+routes.get('/user/:id', UserController.show)
+routes.put('/user/:id', UserController.update)
+routes.delete('/user/:id', UserController.destroy)
 
 routes.post('/app/images', upload.single('image'), ImageController.store)
 

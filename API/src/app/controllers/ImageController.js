@@ -22,7 +22,11 @@ class ImageController {
     await Mail.sendMail({
       to: `${user.name} <${user.email}>`,
       subject: 'Nova imagem enviada',
-      text: 'Você enviou uma nova imagem'
+      template: 'send',
+      context: {
+        name: user.name,
+        image: file.images
+      }
     })
 
     return res.json(file)

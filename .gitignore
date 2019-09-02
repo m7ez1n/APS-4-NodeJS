@@ -20,7 +20,7 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-taskconst user = await User.findByPk(req.userId)const user = await User.findByPk(req.userId)-files)
 .grunt
 
 # Bower dependency directory (https://bower.io/)
@@ -60,3 +60,9 @@ typings/
 
 # next.js build output
 .next
+
+# pasta de imagens
+uploads/
+
+# arquivo de sessão
+src/tmp/sessions.db

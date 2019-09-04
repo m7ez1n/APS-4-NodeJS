@@ -24,5 +24,6 @@ routes.put('/user', UserController.update)
 routes.delete('/user/:id', UserController.destroy)
 
 routes.post('/app/images', upload.single('image'), ImageController.store)
+routes.get('/app/images', ImageController.index)
 
 module.exports = routes

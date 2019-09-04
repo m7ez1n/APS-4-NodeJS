@@ -7,7 +7,11 @@ class ImageController {
   async index (req, res) {
     const file = await Images.findAll()
 
-    const ordenationFile = file.slice().sort()
+    const ordenationFile = file.sort((imagesA, imageB) => {
+      if (imagesA.images.toLowerCase() < imageB.images.toLowerCase()) return -1
+      if (imagesA.images.toLowerCase() > imageB.images.toLowerCase()) return 1
+      return 0
+    })
 
     return res.json(ordenationFile)
   }

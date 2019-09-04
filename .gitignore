@@ -65,4 +65,4 @@ typings/
 uploads/
 
 # arquivo de sessão
-API/tmp/sessions.db
+API/tmp/
